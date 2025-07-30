@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb0wgk5344tjk"]
+
+[ext_resource type="Script" uid="uid://c3myg34178uhv" path="res://presets/forum_window_content.gd" id="1_adoi7"]
+
+[node name="InputWindowContent" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+script = ExtResource("1_adoi7")
+
+[node name="Username" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="UsernameLabel" type="Label" parent="Username"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "username"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Username"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Username/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="UsernameInput" type="LineEdit" parent="Username/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+caret_blink = true
+
+[node name="Password" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PasswordLabel" type="Label" parent="Password"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "password"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Password"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Password/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="PasswordInput" type="LineEdit" parent="Password/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+caret_blink = true
+secret = true

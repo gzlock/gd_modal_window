@@ -1,0 +1,37 @@
+name: Release Addon Zip
+
+on:
+  push:
+    tags:
+      - 'v*.*'
+
+jobs:
+  create_release:
+    name: Create GitHub Release with Addon Zip
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create addon.zip
+        run: |
+          cd addon
+          zip -r ../addon.zip .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload addon.zip to Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: addon.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

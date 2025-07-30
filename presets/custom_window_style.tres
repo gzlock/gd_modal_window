@@ -1,0 +1,89 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bw0d438yv3vps"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1yads"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qb2ki"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpfib"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjojr"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvim4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrfs0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otx88"]
+bg_color = Color(1, 0, 0, 1)
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_1yads")
+Button/styles/focus = SubResource("StyleBoxFlat_qb2ki")
+Button/styles/hover = SubResource("StyleBoxFlat_dpfib")
+Button/styles/normal = SubResource("StyleBoxFlat_jjojr")
+Button/styles/pressed = SubResource("StyleBoxFlat_mvim4")
+Label/colors/font_color = Color(0.2, 0.2, 0.2, 1)
+RichTextLabel/colors/default_color = Color(0.4, 0.4, 0.4, 1)
+RichTextLabel/styles/focus = SubResource("StyleBoxFlat_nrfs0")
+ScrollContainer/styles/focus = SubResource("StyleBoxFlat_otx88")
+TextEdit/colors/font_color = Color(0.4, 0.4, 0.4, 1)

@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0b4f4iw342mh"]
+
+[ext_resource type="Script" uid="uid://dba0a81rj6nwf" path="res://example.gd" id="1_2jas5"]
+
+[node name="Example" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2jas5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer1" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Win1" type="Button" parent="VBoxContainer/VBoxContainer1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "simple_window"
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer1"]
+layout_mode = 2
+text = "simple_window_descript"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Win2" type="Button" parent="VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "custom_window"
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "custom_window_descript"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Win3" type="Button" parent="VBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "forum_window"
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "forum_window_descript"
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer1/Win1" to="." method="_on_win_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/Win2" to="." method="_on_win_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer3/Win3" to="." method="_on_win_3_pressed"]

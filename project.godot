@@ -1,0 +1,29 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ModalWindowExample"
+config/tags=PackedStringArray("modal_window", "addon", "example")
+run/main_scene="uid://c0b4f4iw342mh"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+ModalWindowManager="*res://addons/modal_window/modal_window_manager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/modal_window/plugin.cfg")
+
+[input_devices]
+
+pointing/emulate_mouse_from_touch=false
