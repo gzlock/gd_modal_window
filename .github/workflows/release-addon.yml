@@ -4,6 +4,9 @@ on:
   push:
     tags:
       - 'v*.*'
+  watch:
+    types:
+      - started
 
 jobs:
   create_release:
@@ -14,7 +17,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Create addon.zip
+      - name: Create modal_window.zip
         run: |
           cd addons/modal_window
           zip -r ../modal_window.zip .
@@ -29,7 +32,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload addon.zip to Release
+      - name: Upload modal_window.zip to Release
         uses: softprops/action-gh-release@v1
         with:
           files: modal_window.zip
