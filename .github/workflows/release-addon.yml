@@ -19,7 +19,9 @@ jobs:
 
       - name: Create release zip file
         run: |
-          zip -r ./modal_window.zip ./addons
+          cd ./addons
+          zip -r ../modal_window.zip ./modal_window
+          cd ..
 
       - name: Verify modal_window.zip
         run: ls -l ./modal_window.zip
