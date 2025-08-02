@@ -16,8 +16,8 @@ jobs:
 
       - name: Create addon.zip
         run: |
-          cd addon
-          zip -r ../addon.zip .
+          cd addons/modal_window
+          zip -r ../modal_window.zip .
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
@@ -32,6 +32,6 @@ jobs:
       - name: Upload addon.zip to Release
         uses: softprops/action-gh-release@v1
         with:
-          files: addon.zip
+          files: modal_window.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
