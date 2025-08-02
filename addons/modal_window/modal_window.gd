@@ -5,6 +5,8 @@
 extends Control
 class_name ModalWindow
 
+var _print_debug := true
+
 @onready var bg: ColorRect = %Background # 背景颜色节点
 @onready var _btn_close: BaseButton = %BtnClose
 @onready var _head: HBoxContainer = %Head
@@ -139,7 +141,7 @@ func add_button(action_name: String, text: String, disabled: bool = false) -> Mo
 		var button = Button.new()
 		button.text = text
 		button.pressed.connect(_button_click.bind(action_name))
-		print('button name: %s, text: %s, disabled: %s' % [action_name, text, disabled])
+		_print('button name: %s, text: %s, disabled: %s' % [action_name, text, disabled])
 		button.disabled = disabled
 		buttons[action_name] = button
 		_foot.add_child(button)
@@ -237,14 +239,14 @@ func get_focus() -> void:
 # 重置对话框大小和位置
 var _reset_size_pending := false
 func request_reset_size() -> ModalWindow:
-	# print("请求重置对话框大小和位置, frame: %s" % Engine.get_frames_drawn())
+	# _print("请求重置对话框大小和位置, frame: %s" % Engine.get_frames_drawn())
 	if _reset_size_pending:
 		return self
 	_reset_size_pending = true
 	call_deferred("_reset_size")
 	return self
 func _reset_size() -> void:
-	print("重置对话框大小和位置, frame: %s" % Engine.get_frames_drawn())
+	_print("重置对话框大小和位置, frame: %s" % Engine.get_frames_drawn())
 	# 当gialog_foot没有子节点时，_content_container的bottom margin设置为0
 	_content_container.add_theme_constant_override("margin_bottom", 0 if _foot.get_child_count() == 0 else 10)
 	
@@ -259,7 +261,7 @@ func _reset_size() -> void:
 	var large_then_width = window_size.x >= (viewport_size.x - _safe_padding.x)
 	var large_then_height = window_size.y >= (viewport_size.y - _safe_padding.y)
 	if large_then_width or large_then_height:
-		print('触发计算大小')
+		_print('触发计算大小')
 		var c_size = _content_size
 		if large_then_width:
 			copy_content_size.x = _content_size.x - (window_size.x - (viewport_size.x - _safe_padding.x))
@@ -268,7 +270,7 @@ func _reset_size() -> void:
 			print('多出 %s' % (window_size.y - (viewport_size.y - _safe_padding.y)))
 		# 设置内容容器的最小大小
 		_content_container.custom_minimum_size = copy_content_size
-	print(
+	_print(
 		"画面大小：%s, 窗口：%s, 指定大小: %s, 计算后: %s, 最后窗口大小: %s" %
 	 	[viewport_size, window_size, content_size, copy_content_size, %Window.size]
 		)
@@ -276,7 +278,7 @@ func _reset_size() -> void:
 	window_size = %Window.size
 	%Window.position = (viewport_size - window_size) / 2
 	_reset_size_pending = false
-	# print("对话框大小和位置已重置, frame: %s" % Engine.get_frames_drawn())
+	# _print("对话框大小和位置已重置, frame: %s" % Engine.get_frames_drawn())
 
 
 # 对话框可见性改变时调用
@@ -317,7 +319,7 @@ func _on_disvisible() -> void:
 	# _clear_action_connections()
 
 func _head_changed() -> void:
-	# print("control_head title:%s， close_btn:%s" % [_title, _show_close_button])
+	# _print("control_head title:%s， close_btn:%s" % [_title, _show_close_button])
 	if _title_label == null:
 		return
 	if _title.is_empty() and not _show_close_button:
@@ -331,3 +333,7 @@ func _head_changed() -> void:
 signal _wait_to_close
 func wait_to_close() -> Signal:
 	return _wait_to_close
+
+func _print(content: String) -> void:
+	if _print_debug:
+		print(content)
