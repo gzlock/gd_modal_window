@@ -88,6 +88,7 @@ func show_close_button(value: bool) -> ModalWindow:
 	return request_reset_size()
 
 
+# Todo
 # 定义对话框是否可以拖动
 var _draggable: bool = true
 var draggable: bool:
@@ -234,16 +235,16 @@ func get_focus() -> void:
 			buttons.values()[0].grab_focus()
 
 # 重置对话框大小和位置
-var _reset_size_called := false
+var _reset_size_pending := false
 func request_reset_size() -> ModalWindow:
-	print("请求重置对话框大小和位置, frame: %s" % Engine.get_frames_drawn())
-	if _reset_size_called:
+	# print("请求重置对话框大小和位置, frame: %s" % Engine.get_frames_drawn())
+	if _reset_size_pending:
 		return self
-	_reset_size_called = true
+	_reset_size_pending = true
 	call_deferred("_reset_size")
 	return self
 func _reset_size() -> void:
-	# print("重置对话框大小和位置, min_size: %s" % _min_size)
+	print("重置对话框大小和位置, frame: %s" % Engine.get_frames_drawn())
 	# 当gialog_foot没有子节点时，_content_container的bottom margin设置为0
 	_content_container.add_theme_constant_override("margin_bottom", 0 if _foot.get_child_count() == 0 else 10)
 	
@@ -274,7 +275,7 @@ func _reset_size() -> void:
 	%Window.reset_size()
 	window_size = %Window.size
 	%Window.position = (viewport_size - window_size) / 2
-	_reset_size_called = false
+	_reset_size_pending = false
 	# print("对话框大小和位置已重置, frame: %s" % Engine.get_frames_drawn())
 
 

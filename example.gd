@@ -21,7 +21,7 @@ func _ready() -> void:
 	$VBoxContainer/VBoxContainer3/Label.text = i18n.ui($VBoxContainer/VBoxContainer3/Label.text)
 	
 func _on_win_1_pressed() -> void:
-	ModalWindowManager.create(i18n.ui('simple_window'), i18n.ui('title'))
+	ModalWindowManager.create(i18n.ui('simple_window'), i18n.ui('title')).set_content_size(Vector2(200, 100))
 
 
 var win2: ModalWindow
@@ -69,7 +69,7 @@ func _on_win_2_pressed() -> void:
 	)
 
 func _user_agreement_scroll_to_bottom() -> void:
-	print('Scrolled to bottom')
+	# print('Scrolled to bottom')
 	if win2:
 		win2.set_disabled("ok", false)
 
@@ -96,11 +96,11 @@ var _win3: ModalWindow
 func _on_win_3_pressed() -> void:
 	var forum: Forum = FORUM_WINODW_CONTENT.instantiate()
 	_win3 = ModalWindowManager.create(forum, i18n.ui('register')) \
-	.add_button("register", i18n.ui("register"))
+	.add_button("submit", i18n.ui("submit"))
 	
 	_win3.action.connect(func(_w: ModalWindow, action_name: String, _checked: bool) -> void:
 		match action_name:
-			"register":
+			"submit":
 				var username = forum.username_input.text
 				var password = forum.password_input.text
 				if username.is_empty():

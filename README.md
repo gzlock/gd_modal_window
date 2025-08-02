@@ -15,6 +15,19 @@
 
 **Download this project locally and run the example scene.**
 
+## How To Use
+
+1. Enable the ModalWindow addon
+
+![image](./images/en_enable_addon.png)
+
+2. Enable the ModalWindowManager in the globals setting
+
+![image](./images/en_enable_manager.png)
+
+3. Use this code to create the window: `ModalWinddowManager.create('Content','Title')`
+
+
 ## Supported Platforms
 * Web
 * Windows

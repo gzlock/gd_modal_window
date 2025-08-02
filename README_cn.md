@@ -11,9 +11,22 @@
 * 常规方法支持链式调用，即`win.b().c().d()`
 * 实现了使用await等待模态窗口关闭，即`await win.wait_to_close()`
 
-## 🎉请体验最佳实践🎉
+## 🎉体验最佳实践🎉
 
 **下载这个项目到本地，运行example场景即可。**
+
+
+## 使用方法
+
+1. 启用ModalWindow插件
+
+![image](./images/cn_enable_addon.png)
+
+2. 启用全局设置里的ModalWindowManager
+
+![image](./images/cn_enable_manager.png)
+
+3. 创建窗口`ModalWinddowManager.create('窗口内容','窗口标题')`
 
 
 ## 支持平台
@@ -22,7 +35,6 @@
 * Linux
 * Android
 * iOS
-
 
 ## ⚠️请参照[🔗示范的预设场景](./custom_modal_window_preset.tscn)的节点命名规范来创建自定义窗口场景
 
