@@ -8,7 +8,7 @@
 * Stacked multiple windows
 * Rich customization options
 * Supports fully customizable window UI skins
-* Regular method support for chaining calls, i.e., `win.b().c().d()`
+* Regular method support for chaining calls, i.e., `win.a().b().c()`
 * Implemented using await to wait for the modal window to close, i.e., `await win.wait_to_close()`
 
 ## 🎉 Experience the Best Practices 🎉
