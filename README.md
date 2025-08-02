@@ -39,6 +39,8 @@
 
 ## Assets 
 * [Kenny UI Pack (CC0)](https://kenney.nl/assets/ui-pack)
+* [Ninja Asset Pack(CC0)](https://pixel-boy.itch.io/ninja-adventure-asset-pack)
+* [Pixelated Elegance Font - CC0](https://ggbot.itch.io/pixelated-elegance-font)
 
 ## Todo
 * Write a documents

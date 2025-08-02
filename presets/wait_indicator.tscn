@@ -4,6 +4,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_l2x5h"]
 font_size = 22
+font_color = Color(0, 0, 0, 1)
 
 [node name="WaitIndicator" type="Control"]
 custom_minimum_size = Vector2(200, 100)

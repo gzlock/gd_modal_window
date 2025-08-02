@@ -29,6 +29,17 @@
 3. 创建窗口`ModalWinddowManager.create('窗口内容','窗口标题')`
 
 
+# 两种方法自定义窗体风格
+1. 全局
+
+    `ModalWindowManager.global_preset = ...`
+
+2. 针对单一窗口
+   
+    `ModalWindowManager.create('content', 'title', packed_scene)`
+
+
+
 ## 支持平台
 * Web
 * Windows
@@ -40,6 +51,8 @@
 
 ## Assets 
 * [Kenny ui pack(CC0)](https://kenney.nl/assets/ui-pack)
+* [Ninja Asset Pack(CC0)](https://pixel-boy.itch.io/ninja-adventure-asset-pack)
+* [Pixelated Elegance Font - CC0](https://ggbot.itch.io/pixelated-elegance-font)
 
 ## TODO
 * 编写文档

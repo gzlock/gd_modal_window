@@ -1,6 +1,6 @@
 {
-	"zh": {
-		"name": "简体中文",
+	"zh": {		
+		"pixel_style_switch": "使用像素风格窗体",
 		"close_btn": "关闭按钮",
 		"title": "模态窗口",
 		"window_title": "窗口标题",
@@ -29,7 +29,7 @@
 		"success": "注册成功"
 	},
 	"en": {
-		"name": "English",
+		"pixel_style_switch": "Use Pixel Style Window",
 		"close_btn": "Close Button",
 		"title": "Modal Window",
 		"window_title": "Window Title",

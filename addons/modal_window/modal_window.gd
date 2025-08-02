@@ -5,6 +5,7 @@
 extends Control
 class_name ModalWindow
 
+# 只在开发时输出
 var _print_debug := true
 
 @onready var bg: ColorRect = %Background # 背景颜色节点
@@ -43,8 +44,17 @@ func set_area_safe_padding(value: Vector2) -> ModalWindow:
 	_safe_padding = value
 	return self
 
+# TODO
 # 定义对话框是否可以通过按下 Escape 键关闭
 var dialog_close_on_escape: bool = false
+
+var _ok_to_close: bool = true
+var ok_to_close: bool:
+	get:
+		return _ok_to_close
+func set_ok_to_close(value: bool) -> ModalWindow:
+	_ok_to_close = value
+	return self
 
 
 # 设置内容容器的大小
@@ -193,6 +203,8 @@ func _button_click(action_name: String) -> void:
 	assert(buttons.has(action_name), "按钮不存在: %s" % action_name)
 	_focus_button = action_name
 	action.emit(self, action_name, false)
+	if _ok_to_close and action_name == "ok":
+		visible = false
 
 func _checkbutton_click(action_name: String) -> void:
 	var button: CheckButton = buttons[action_name]

@@ -22,6 +22,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PixelStyleSwitch" type="CheckButton" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "pixel_style_switch"
+
 [node name="VBoxContainer1" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -58,6 +65,7 @@ text = "forum_window"
 layout_mode = 2
 text = "forum_window_descript"
 
+[connection signal="toggled" from="VBoxContainer/VBoxContainer/PixelStyleSwitch" to="." method="_on_pixel_style_switch_toggled"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer1/Win1" to="." method="_on_win_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer2/Win2" to="." method="_on_win_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer3/Win3" to="." method="_on_win_3_pressed"]
