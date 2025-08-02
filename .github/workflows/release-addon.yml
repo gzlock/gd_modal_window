@@ -4,9 +4,6 @@ on:
   push:
     tags:
       - 'v*.*'
-  watch:
-    types:
-      - started
 
 jobs:
   create_release:
@@ -17,10 +14,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Create modal_window.zip
+      - name: Debug file structure
+        run: ls -R
+
+      - name: Create release zip file
         run: |
           cd addons/modal_window
           zip -r ../modal_window.zip .
+
+      - name: Verify modal_window.zip
+        run: ls -l ../modal_window.zip
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
