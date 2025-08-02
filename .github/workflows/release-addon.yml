@@ -22,7 +22,7 @@ jobs:
           zip -r ./modal_window.zip ./addons
 
       - name: Verify modal_window.zip
-        run: ls -l modal_window.zip
+        run: ls -l ./modal_window.zip
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
