@@ -200,7 +200,8 @@ func set_disabled(action_name: String, disabled: bool) -> ModalWindow:
 
 
 func _button_click(action_name: String) -> void:
-	assert(buttons.has(action_name), "按钮不存在: %s" % action_name)
+	if not buttons.has(action_name):
+		return
 	_focus_button = action_name
 	action.emit(self, action_name, false)
 	if _ok_to_close and action_name == "ok":
