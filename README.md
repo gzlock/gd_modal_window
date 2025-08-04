@@ -1,13 +1,16 @@
+<center>
 <img src="./logo.png" width=64>
 
 # Godot Modal Window v0.1 / [中文](./README_cn.md)
 
+</center>
+
 ## Developer-Friendly Features
 * Supports stacked multiple windows
-* Allows enabling/disabling background click to close the window
+* Supports enabling/disabling background click to close the window
 * Supports method chaining, e.g., `win.a().b().c()`
-* Fully customizable window UI skins
-* Button events can be captured via signals
+* Supports fully customizable window UI skins
+* Supports button signals
 * Supports `await` to wait for the modal window to close, e.g.,
 
   ```
@@ -32,13 +35,13 @@
 
 1. Enable the ModalWindow addon
 
-![image](./images/en_enable_addon.png)
+![image](./images/cn_enable_addon.png)
 
 2. Enable the ModalWindowManager in the global settings
 
-![image](./images/en_enable_manager.png)
+![image](./images/cn_enable_manager.png)
 
-3. Create a window using `ModalWinddowManager.create('Content', 'Title')`
+3. Create a window using `ModalWindowManager.create('Content', 'Title')`
 
 # Two Ways to Customize Window Styles
 1. Globally
