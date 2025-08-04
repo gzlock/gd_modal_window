@@ -1,20 +1,36 @@
-<img src="./logo.png">
+<center>
+<img src="./logo.png" width=64>
 
 # Godot模态窗口 v0.1 / [English](./README.md)
 
-## 优点
-* 简单易用
-* 纯gdscript代码实现
-* 多窗口堆叠
-* 丰富的自定义选项
-* 支持完全自定义窗口UI皮肤
-* 常规方法支持链式调用，即`win.a().b().c()`
-* 实现了使用await等待模态窗口关闭，即`await win.wait_to_close()`
+</center>
+
+## 开发者友好
+* 支持 多窗口堆叠
+* 支持 启用 / 禁用点击背景关闭窗口
+* 支持 链式调用，例如`win.a().b().c()`
+* 支持 完全自定义窗口UI皮肤
+* 支持 通过信号获取按钮事件
+* 支持 await等待模态窗口关闭，例如
+
+  ```
+    await win.wait_to_close()
+    print("窗口已经关闭")
+  ```
+
+
+## 用手柄的游戏玩家友好
+* 支持 多个窗口之间的自动切换按钮焦点
+* 支持 开发者自己管理焦点
 
 ## 🎉体验最佳实践🎉
 
 **下载这个项目到本地，运行example场景即可。**
 
+## 安装
+
+* 下载[🔗最新的稳定版本插件压缩包](https://github.com/gzlock/gd_modal_window/releases/latest/download/modal_window.zip)，解压放到Godot项目的Addons文件夹，例如`/项目/addons/modal_window`
+* 在Godot编辑器Asset Library内搜索Modal Window进行安装
 
 ## 使用方法
 
