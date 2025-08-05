@@ -48,7 +48,7 @@
 # 两种方法自定义窗体风格
 1. 全局
 
-    `ModalWindowManager.global_preset = ...`
+    `ModalWindowManager.global_preset = packed_scene`
 
 2. 针对单一窗口
    

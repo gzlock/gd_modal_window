@@ -46,7 +46,7 @@
 # Two Ways to Customize Window Styles
 1. Globally
 
-    `ModalWindowManager.global_preset = ...`
+    `ModalWindowManager.global_preset = packed_scene`
 
 2. For a single window
 
