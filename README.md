@@ -1,6 +1,9 @@
+<p align="center">
+
 <img src="./logo.png" width=64>
 
 # Godot Modal Window v0.1 / [中文](./README_cn.md)
+</p>
 
 ## Developer-Friendly Features
 * Supports stacked multiple windows
