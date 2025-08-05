@@ -1,9 +1,9 @@
-<center>
+<p align="center">
 <img src="./logo.png" width=64>
 
-# Godot模态窗口 v0.1 / [English](./README.md)
+# Godot模态窗口 / [English](./README.md)
 
-</center>
+</p>
 
 ## 开发者友好
 * 支持 多窗口堆叠
