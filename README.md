@@ -35,11 +35,11 @@
 
 1. Enable the ModalWindow addon
 
-![image](./images/cn_enable_addon.png)
+![image](./images/en_enable_addon.png)
 
 2. Enable the ModalWindowManager in the global settings
 
-![image](./images/cn_enable_manager.png)
+![image](./images/en_enable_manager.png)
 
 3. Create a window using `ModalWindowManager.create('Content', 'Title')`
 
