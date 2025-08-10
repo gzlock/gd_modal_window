@@ -17,10 +17,6 @@ jobs:
       - name: Debug file structure
         run: ls -R
 
-      - name: Disable debug mode in modal_window.gd
-        run: |
-          sed -i 's/var _print_debug := true/var _print_debug := false/' ./addons/modal_window/modal_window.gd
-
       - name: Create release zip file
         run: |
           cd ./addons

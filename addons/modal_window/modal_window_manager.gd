@@ -32,3 +32,6 @@ func _on_window_visible_changed(win: ModalWindow) -> void:
 		for w in get_children():
 			if w is ModalWindow and w != win and w.visible:
 				w.get_focus()
+
+
+var print_debug := false

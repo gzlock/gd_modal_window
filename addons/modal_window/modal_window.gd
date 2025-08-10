@@ -1,12 +1,6 @@
-# 该脚本定义了一个自定义对话框类 ModalWindow，继承自 Node。
-# 该对话框包含一个背景颜色和一个可接受的对话框窗口。
-# 提供了信号和方法来处理对话框的交互。
 
 extends Control
 class_name ModalWindow
-
-# 只在开发时输出
-var _print_debug := true
 
 @onready var bg: ColorRect = %Background # 背景颜色节点
 @onready var _btn_close: BaseButton = %BtnClose
@@ -259,7 +253,7 @@ func request_reset_size() -> ModalWindow:
 	call_deferred("_reset_size")
 	return self
 func _reset_size() -> void:
-	_print("重置对话框大小和位置, frame: %s" % Engine.get_frames_drawn())
+	_print("Recalculating the window's size, frame: %s" % Engine.get_frames_drawn())
 	# 当gialog_foot没有子节点时，_content_container的bottom margin设置为0
 	_content_container.add_theme_constant_override("margin_bottom", 0 if _foot.get_child_count() == 0 else 10)
 	
@@ -274,18 +268,18 @@ func _reset_size() -> void:
 	var large_then_width = window_size.x >= (viewport_size.x - _safe_padding.x)
 	var large_then_height = window_size.y >= (viewport_size.y - _safe_padding.y)
 	if large_then_width or large_then_height:
-		_print('触发计算大小')
+		_print('Recalculate')
 		var c_size = _content_size
 		if large_then_width:
 			copy_content_size.x = _content_size.x - (window_size.x - (viewport_size.x - _safe_padding.x))
 		if large_then_height:
 			copy_content_size.y = _content_size.y - (window_size.y - (viewport_size.y - _safe_padding.y))
-			print('多出 %s' % (window_size.y - (viewport_size.y - _safe_padding.y)))
 		# 设置内容容器的最小大小
+		# set the recalculated size
 		_content_container.custom_minimum_size = copy_content_size
 	_print(
-		"画面大小：%s, 窗口：%s, 指定大小: %s, 计算后: %s, 最后窗口大小: %s" %
-	 	[viewport_size, window_size, content_size, copy_content_size, %Window.size]
+		"viewport：%s, window：%s, content size: %s, last window size: %s" %
+	 	[viewport_size, window_size, copy_content_size, %Window.size]
 		)
 	%Window.reset_size()
 	window_size = %Window.size
@@ -314,13 +308,10 @@ func _on_visible() -> void:
 	get_focus()
 	request_reset_size()
 func _on_disvisible() -> void:
-	# 关闭对话框时，发出等待关闭的信号
 	_wait_to_close.emit()
 	if _content_node:
 		_content_container.remove_child(_content_node)
 	queue_free()
-
-
 	# await get_tree().process_frame
 	# _content_type = 0
 	# _content_node = null
@@ -342,11 +333,10 @@ func _head_changed() -> void:
 	_title_label.text = _title
 	_btn_close.visible = _show_close_button
 
-# 等待对话框被关闭的信号
 signal _wait_to_close
 func wait_to_close() -> Signal:
 	return _wait_to_close
 
 func _print(content: String) -> void:
-	if _print_debug:
+	if ModalWindowManager.print_debug:
 		print(content)
