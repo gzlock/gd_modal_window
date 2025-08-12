@@ -23,9 +23,10 @@ func _ready() -> void:
 	$VBoxContainer/VBoxContainer2/Label.text = i18n.ui($VBoxContainer/VBoxContainer2/Label.text)
 	btn_win3.text = i18n.ui(btn_win3.text)
 	$VBoxContainer/VBoxContainer3/Label.text = i18n.ui($VBoxContainer/VBoxContainer3/Label.text)
-	
+
 func _on_win_1_pressed() -> void:
-	ModalWindowManager.create(i18n.ui('simple_window'), i18n.ui('title')) \
+	ModalWindowManager \
+	.create(i18n.ui('simple_window'), i18n.ui('title')) \
 	.set_content_size(Vector2(200, 100))
 
 
