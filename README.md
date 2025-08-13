@@ -2,7 +2,7 @@
 
 <img src="./logo.png" width=64>
 
-# Godot Modal Window v0.1 / [中文](./README_cn.md)
+# Godot Modal Window / [中文](./README_cn.md)
 </p>
 
 ## Developer-Friendly Features
@@ -37,11 +37,7 @@
 
 ![image](./images/en_enable_addon.png)
 
-2. Enable the ModalWindowManager in the global settings
-
-![image](./images/en_enable_manager.png)
-
-3. Create a window using `ModalWindowManager.create('Content', 'Title')`
+2. Create a window using `ModalWindowManager.create('Content', 'Title')`
 
 # Two Ways to Customize Window Styles
 1. Globally

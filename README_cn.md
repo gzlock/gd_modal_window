@@ -38,11 +38,7 @@
 
 ![image](./images/cn_enable_addon.png)
 
-2. 启用全局设置里的ModalWindowManager
-
-![image](./images/cn_enable_manager.png)
-
-3. 创建窗口`ModalWinddowManager.create('窗口内容','窗口标题')`
+2. 创建窗口`ModalWinddowManager.create('窗口内容','窗口标题')`
 
 
 # 两种方法自定义窗体风格
@@ -65,7 +61,7 @@
 
 ## ⚠️请参照[🔗示范的预设场景](./custom_modal_window_preset.tscn)的节点命名规范来创建自定义窗口场景
 
-## Assets 
+## 用到的素材资源 
 * [Kenny ui pack(CC0)](https://kenney.nl/assets/ui-pack)
 * [Ninja Asset Pack(CC0)](https://pixel-boy.itch.io/ninja-adventure-asset-pack)
 * [Pixelated Elegance Font - CC0](https://ggbot.itch.io/pixelated-elegance-font)
