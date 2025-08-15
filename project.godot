@@ -14,7 +14,7 @@ config/name="ModalWindowExample"
 config/tags=PackedStringArray("modal_window", "addon", "example")
 run/main_scene="uid://c0b4f4iw342mh"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://logo.png"
 
 [autoload]
 
