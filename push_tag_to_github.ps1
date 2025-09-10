@@ -4,15 +4,15 @@ try {
     Write-Host "The last tag is: $lastTag"
 } catch {
     Write-Host "No tags found in the repository."
-    $lastTag = "None"
+    $lastTag = "v1.0"
 }
 
 # 等待交互，提示输入版本号，提示内容中包含最后的 tag 以供参考
-$version = Read-Host "Enter the version number (e.g., v1.0.0):"
+$version = Read-Host "Enter the version number (e.g., v1.0):"
 
 # 验证版本号格式
-if (-not $version -or $version -notmatch "^v[0-9]+\\.[0-9]+\\.[0-9]+$") {
-    Write-Host "Invalid version number format. Please use the format vX.Y.Z (e.g., v1.0.0)."
+if (-not $version -or $version -notmatch "^v[0-9]+\\.[0-9]+$") {
+    Write-Host "Invalid version number format. Please use the format vX.Y.Z (e.g., v1.0)."
     exit 1
 }
 
