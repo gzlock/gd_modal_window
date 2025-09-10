@@ -19,12 +19,10 @@ jobs:
 
       - name: Create release zip file
         run: |
+          zip -r ./for_godot_asset_library.zip ./addons
           cd ./addons
           zip -r ../modal_window.zip ./modal_window
           cd ..
-
-      - name: Verify modal_window.zip
-        run: ls -l ./modal_window.zip
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
@@ -36,9 +34,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload modal_window.zip to Release
+      - name: Upload the zip files to Release
         uses: softprops/action-gh-release@v1
         with:
-          files: ./modal_window.zip
+          files: |
+            ./modal_window.zip
+            ./for_godot_asset_library.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
