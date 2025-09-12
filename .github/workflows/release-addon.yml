@@ -20,8 +20,8 @@ jobs:
       - name: Create release zip file
         run: |
           VERSION=${{ github.ref_name }}
-          mkdir -p ./temp/modal_window_addon_$VERSION
-          cp -r ./addons/* ./temp/modal_window_addon_$VERSION/
+          mkdir -p ./temp/modal_window_addon_$VERSION/addons
+          cp -r ./addons/* ./temp/modal_window_addon_$VERSION/addons/
           cd ./temp
           zip -r ../for_godot_asset_library.zip ./modal_window_addon_$VERSION
           cd ..
