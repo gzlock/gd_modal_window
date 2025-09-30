@@ -1,18 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0b4f4iw342mh"]
+[gd_scene load_steps=7 format=3 uid="uid://c0b4f4iw342mh"]
 
 [ext_resource type="Script" uid="uid://dba0a81rj6nwf" path="res://example.gd" id="1_2jas5"]
+[ext_resource type="Script" uid="uid://borckeq1dwhwo" path="res://tween.gd" id="2_n51mc"]
 
-[node name="Example" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n51mc"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_8lvy3"]
+sky_material = SubResource("ProceduralSkyMaterial_n51mc")
+
+[sub_resource type="Environment" id="Environment_wcwec"]
+background_mode = 2
+sky = SubResource("Sky_8lvy3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_n51mc"]
+size = Vector3(5, 2, 0.1)
+
+[node name="Node3D" type="Node3D"]
 script = ExtResource("1_2jas5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wcwec")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -22,50 +43,68 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/VBoxContainer"]
 layout_mode = 2
 
-[node name="PixelStyleSwitch" type="CheckButton" parent="VBoxContainer/VBoxContainer"]
+[node name="PixelStyleSwitch" type="CheckButton" parent="UI/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "pixel_style_switch"
 
-[node name="VBoxContainer1" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer1" type="VBoxContainer" parent="UI/VBoxContainer"]
 layout_mode = 2
 
-[node name="Win1" type="Button" parent="VBoxContainer/VBoxContainer1"]
+[node name="Win1" type="Button" parent="UI/VBoxContainer/VBoxContainer1"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "simple_window"
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer1"]
+[node name="Label" type="Label" parent="UI/VBoxContainer/VBoxContainer1"]
 layout_mode = 2
 text = "simple_window_descript"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/VBoxContainer"]
 layout_mode = 2
 
-[node name="Win2" type="Button" parent="VBoxContainer/VBoxContainer2"]
+[node name="Win2" type="Button" parent="UI/VBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "custom_window"
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="UI/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "custom_window_descript"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI/VBoxContainer"]
 layout_mode = 2
 
-[node name="Win3" type="Button" parent="VBoxContainer/VBoxContainer3"]
+[node name="Win3" type="Button" parent="UI/VBoxContainer/VBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "forum_window"
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="UI/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
 text = "forum_window_descript"
 
-[connection signal="toggled" from="VBoxContainer/VBoxContainer/PixelStyleSwitch" to="." method="_on_pixel_style_switch_toggled"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer1/Win1" to="." method="_on_win_1_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer2/Win2" to="." method="_on_win_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer3/Win3" to="." method="_on_win_3_pressed"]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.9899056, -0.029824635, 0.1385545, 0, 0.9776078, 0.21043557, -0.1417281, -0.20831136, 0.9677394, 0.44359902, 1.3541358, 3.5496976)
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("2_n51mc")
+
+[node name="3DText" type="Label3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9740286, 0)
+text = "When any ModalWindow show
+It will stop."
+font_size = 50
+outline_size = 20
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47443783, -0.10057226)
+mesh = SubResource("BoxMesh_n51mc")
+
+[connection signal="toggled" from="UI/VBoxContainer/VBoxContainer/PixelStyleSwitch" to="UI" method="_on_pixel_style_switch_toggled"]
+[connection signal="pressed" from="UI/VBoxContainer/VBoxContainer1/Win1" to="." method="_on_win_1_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/VBoxContainer2/Win2" to="." method="_on_win_2_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/VBoxContainer3/Win3" to="." method="_on_win_3_pressed"]
