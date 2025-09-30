@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+# class ModalWindowManager
+
 
 signal children_visible_changed(visible: bool)
 

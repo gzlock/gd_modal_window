@@ -11,7 +11,7 @@ static func _init() -> void:
 	var json = JSON.parse_string(file.get_as_text())
 	
 	var lang = 'zh' if OS.get_locale_language() == 'zh' else 'en'
-	_content = json[lang]
+	_content = json['en']
 	print(_content.keys())
 	
 static func ui(key: String) -> String:
