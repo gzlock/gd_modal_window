@@ -41,7 +41,6 @@ func _on_window_visible_changed(win: ModalWindow) -> void:
 
 func _visible_listener() -> void:
 	var has_visible_window = false
-	print('_visible_listener', get_child_count())
 	for w in get_children():
 		if w is ModalWindow and w.visible:
 			has_visible_window = true

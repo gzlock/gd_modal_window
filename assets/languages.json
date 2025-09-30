@@ -1,5 +1,5 @@
 {
-	"zh": {		
+	"zh": {
 		"pixel_style_switch": "使用像素风格窗体",
 		"close_btn": "关闭按钮",
 		"title": "模态窗口",
@@ -26,7 +26,8 @@
 		"register": "注册",
 		"error": "错误",
 		"loading": "加载中",
-		"success": "注册成功"
+		"success": "注册成功",
+		"text_3d": "当显示通知窗口时暂停游戏, 没有通知窗口时继续游戏.\n代码实现在example.gd的29行"
 	},
 	"en": {
 		"pixel_style_switch": "Use Pixel Style Window",
@@ -55,6 +56,7 @@
 		"register": "Register",
 		"error": "Error",
 		"loading": "Loading",
-		"success": "Registration Successful"
+		"success": "Registration Successful",
+		"text_3d": "Pause the game when the modal window is displayed,\nand continue the game when the modal window is not displayed.\nThe code is implemented in line 29 of example.gd"
 	}
 }

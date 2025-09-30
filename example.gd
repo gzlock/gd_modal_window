@@ -15,7 +15,6 @@ const FORUM_WINODW_CONTENT = preload("res://presets/forum_window_content.tscn")
 
 func _ready() -> void:
 	ModalWindowManager.global_preset = CUSTOM_MODAL_WINDOW_PRESET
-	i18n.init()
 	pixel_style_switch.text = i18n.ui(pixel_style_switch.text)
 	btn_win1.text = i18n.ui(btn_win1.text)
 	$UI/VBoxContainer/VBoxContainer1/Label.text = i18n.ui($UI/VBoxContainer/VBoxContainer1/Label.text)

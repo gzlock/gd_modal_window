@@ -1,6 +1,8 @@
 extends Node3D
 
+
 func _ready() -> void:
+	$"3DText".text = i18n.ui("text_3d")
 	_tween()
 
 func _tween():

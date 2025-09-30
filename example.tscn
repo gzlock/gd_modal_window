@@ -17,7 +17,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_n51mc"]
-size = Vector3(5, 2, 0.1)
+size = Vector3(8, 1.2, 0.1)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_2jas5")
@@ -94,9 +94,10 @@ transform = Transform3D(0.9899056, -0.029824635, 0.1385545, 0, 0.9776078, 0.2104
 script = ExtResource("2_n51mc")
 
 [node name="3DText" type="Label3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9740286, 0)
-text = "When any ModalWindow show
-It will stop."
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52717865, 0)
+text = "Pause the game when the modal window is displayed
+and continue the game when the modal window is not displayed.
+The code is implemented in line 29 of example.gd"
 font_size = 50
 outline_size = 20
 
